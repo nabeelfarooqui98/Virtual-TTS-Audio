@@ -5,8 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VirtualTtsAudio"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Virtual TTS Audio" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <!-- Input Text -->
+        <Label Grid.Row="0" Grid.Column="0" Content="Input Text:" VerticalAlignment="Top" Margin="0,0,10,5"/>
+        <TextBox x:Name="InputTextBox" 
+                 Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+                 AcceptsReturn="True" 
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 MinHeight="150"
+                 Margin="0,0,0,10"/>
+
+        <!-- Voice Selection -->
+        <Label Grid.Row="1" Grid.Column="0" Content="Voice:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <ComboBox x:Name="VoiceComboBox" 
+                  Grid.Row="1" Grid.Column="1"
+                  Margin="0,0,20,10"/>
+
+        <!-- Output Device Selection -->
+        <Label Grid.Row="1" Grid.Column="2" Content="Output Device:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <ComboBox x:Name="OutputDeviceComboBox" 
+                  Grid.Row="1" Grid.Column="3"
+                  Margin="0,0,0,10"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right"
+                    Margin="0,10,0,0">
+            <Button x:Name="TestButton" 
+                    Content="Test" 
+                    Width="100" 
+                    Margin="0,0,10,0"
+                    Padding="10,5"/>
+            <Button x:Name="SpeakButton" 
+                    Content="Speak" 
+                    Width="100"
+                    Padding="10,5"/>
+        </StackPanel>
     </Grid>
 </Window>
